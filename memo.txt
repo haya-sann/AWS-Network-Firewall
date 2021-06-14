@@ -25,3 +25,424 @@ IGW Ingress Route Table ID:
 
 
 alert tcp any any -> any any (msg:"TCP traffic detected"; sid:200001; rev:1;)
+
+
+https://github.com/harunobukameda/AWS-Network-Firewall
+
+28.待っている間に、fw subnet用ルートテーブルを作成します。VPC画面左ペインからサブネットをクリックし、
+
+→ルートテーブルをクリックし、
+手順書のミスですね
+
+手順41「ルートテーブルのfwを」→「ルートテーブルのfwrtを」ですかね。
+
+
+
+チャット内容
+
+awsbasics awsbasicsから皆様 (1:23 午後)
+https://github.com/harunobukameda/AWS-Network-Firewall
+Makio Tsukamotoから皆様 (1:23 午後)
+さっきのブログこれかな。https://zenn.dev/shigeru_oda/articles/4be13c19ad430fc56ded
+typhonから皆様 (1:24 午後)
+サブネット計算はもうだいたいオンラインで、調べるのが増えてきた。。。
+https://www.calculator.net/ip-subnet-calculator.html
+非表示にするとか？
+全画面表示やめてみては？
+yamaから皆様 (1:25 午後)
+VPCのCIDRからサブネットに分割して使える数がどれくらいだから云々　という計算するのがケチケチCIDRだとしんどいです。
+sinodaから皆様 (1:25 午後)
+右上「表示」」→からギャラリーを左表示にできますよ
+Makio Tsukamotoから皆様 (1:25 午後)
+ブラウザのタブ切替をCtrl+TabとかCtrl+1、Ctrl+2、...でやるとか…。
+masashiから皆様 (1:27 午後)
+リージョンはどこでも大丈夫でしょうか？それとも、まだ対応していないリージョンはありますでしょうか？
+Yasuhiro MATSUDAから皆様 (1:32 午後)
+予約されている5つのIPアドレス
+https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing
+Makio Tsukamotoから皆様 (1:35 午後)
+EC2インスタンス起動中の画面で「サブスクリプションにいつもより長い時間がかかっています」になってしまいました。インスタンス一覧にも出てきません。しばらく待ってみます。
+melから皆様 (1:38 午後)
+オレゴンでEC2を作成したところ、下記のエラーが出ました。この場合、VPCを再作成してus-west-2d以外のAZにVPCが作成されることを確認したうえでEC2を作成する必要がありますか？あるいは明示的に指定したほうがよいでしょうか。Your requested instance type (t2.micro) is not supported in your requested Availability Zone (us-west-2d). Please retry your request by not specifying an Availability Zone or choosing us-west-2a, us-west-2b, us-west-2c.
+yamaから皆様 (1:38 午後)
+オレゴンでも同じメッセージが出ました。
+waiwai3@tokyoから皆様 (1:38 午後)
+同じです。
+suから皆様 (1:38 午後)
+同じです。起動
+今、起動しました。
+Makio Tsukamotoから皆様 (1:40 午後)
+起動しました。追いつけるよう頑張ります。
+Michael Tedderから皆様 (1:41 午後)
+EC2起動してるらしいのですが、ブラウザでURLを開こうとするとConnection Refusedになってます…
+Daisuke Sonodaから皆様 (1:41 午後)
+すいません、手順5のインターネットゲートウェイIDはどこに記載されていますか？
+Michael Tedderから皆様 (1:41 午後)
+時間かかっただけでしたね！解決ですー
+Yutaro Moriから皆様 (1:43 午後)
+ほしい！！！
+Yasuhiro MATSUDAから皆様 (1:43 午後)
+www
+waiwai3@tokyoから皆様 (1:43 午後)
+ぜひ
+Hisaaki URAGOから皆様 (1:43 午後)
+＄500 はデカい！
+taku999から皆様 (1:43 午後)
+すごい
+masashiから皆様 (1:43 午後)
+500$あれば結構遊べますね
+chiharu miyaから皆様 (1:43 午後)
+あっという間に席が埋まってしまいそうですね…
+YMから皆様 (1:43 午後)
+いいですね、ぜひ
+typhonから皆様 (1:43 午後)
+SamuraiなりHeroになるともっともらえますよ（ひそり
+Shigeru Odaから皆様 (1:43 午後)
+参加者数は多くても　反応全然返ってこないとかなりそう
+typhonから皆様 (1:43 午後)
+3000
+masashiから皆様 (1:43 午後)
+クーポン目当てだけで参加する方が多そう。。。
+Makio Tsukamotoから皆様 (1:43 午後)
+builders.flashの毎月$25に救われてます。
+typhonから皆様 (1:43 午後)
+がSamurai
+Heroは年$2000
+毎年らしい
+今年こそいく
+Shigeru Odaから皆様 (1:44 午後)
+へー
+yunokanyaから皆様 (1:44 午後)
+個人での検証だけなら、$25クーポンでも十分なので、たまに$25クーポンをもらっていて、大変助かってます。
+Makio Tsukamotoから皆様 (1:45 午後)
+手順16まで追いつきました。
+typhonから皆様 (1:45 午後)
+；；
+hyanaiから皆様 (1:46 午後)
+シンガポールでインスタンス作ってたらエラーに遭遇し作成が完了しないので、別のEC2作成中…Some of the volumes attached to instance インスタンスID are impaired.
+YMから皆様 (1:51 午後)
+無償クーポンですが、参加中にキーワード発表して
+申し込みサイトお知らせ、抽選でメール連絡でもらえるとかにしたらどうでしょうか？
+Shigeru Odaから皆様 (1:51 午後)
+活きてます
+Yasuhiro MATSUDAから皆様 (1:51 午後)
+暑くて死にそうです
+hitoshi kanekoから皆様 (1:51 午後)
+順調です。
+大口 聡から皆様 (1:51 午後)
+プロビジョニング待ちです
+daichi_kakimotoから皆様 (1:52 午後)
+[ availability zone subnet(s) cannot be updated or added because this availability zone is not supported by Network Firewall, parameter:]これは、はずれのアベイラビリティゾーンということでしょうか・・・😢
+suから皆様 (1:52 午後)
+バージニア北部でFWを作成していますが、「ファイアウォール : availability zone subnet(s) cannot be updated or added because this availability zone is not supported by Network Firewall, parameter: [subnet-0164fd1fec4a779c9]」とエラーが出ます。
+Makio Tsukamotoから皆様 (1:53 午後)
+Builders Online Series。https://aws.amazon.com/jp/events/builders-online-series/
+森田健から皆様 (1:53 午後)
+fw subnetを作成するときのCIDRga
+わかりません
+daichi_kakimotoから皆様 (1:53 午後)
+バージニア北部でした
+ONGから皆様 (1:54 午後)
+同じく北部でエラーでますね・・・
+awsbasics awsbasicsから皆様 (1:54 午後)
+10.10.1.0/24
+森田健から皆様 (1:54 午後)
+CIDR アドレスが VPC の CIDR アドレス内にありません。になります
+typhonから皆様 (1:55 午後)
+28.待っている間に、fw subnet用ルートテーブルを作成します。VPC画面左ペインからサブネットをクリックし、
+→ルートテーブルをクリックし、
+手順のミスですね
+chiharu miyaから皆様 (1:59 午後)
+作っている環境の構成図が頭に常にないと、迷子になる….
+Yukiから皆様 (2:01 午後)
+publicのサブネットの紐づけ解除ができません。。「サブネットの関連付けを編集」という選択肢がアクションにありません。
+ありました。失礼しました。
+masashiから皆様 (2:02 午後)
+CloudFormationは、基本を理解したうえで使う方がいいかなと思うので、今日みたいな勉強では、面倒でも手作業で作った方がいいかな、と個人的に思っています。
+Makio Tsukamotoから皆様 (2:03 午後)
+手順41「ルートテーブルのfwを」→「ルートテーブルのfwrtを」ですかね。
+Michael Tedderから皆様 (2:03 午後)
+ルート設定… どこか間違ってますw
+Yasuo Ohyachi (AWS)から皆様 (2:06 午後)
+Network FirewallのCIDRですが、どのくらいのサイズが適切なのでしょうか？今回は、/24で設定されていますが。
+utuka8086から皆様 (2:07 午後)
+遅れて参加しました。手順は、どこにあるのでしょうか？
+iyotani.yukiから皆様 (2:07 午後)
+https://github.com/harunobukameda/AWS-Network-Firewall
+手順こちらですー
+utuka8086から皆様 (2:08 午後)
+ありがとうござます。
+Yutaro Moriから皆様 (2:08 午後)
+FWにメトリクスが記録されました
+Makio Tsukamotoから皆様 (2:08 午後)
+もしお時間があれば、エッジって何でしょうか。
+Michael Tedderから皆様 (2:08 午後)
+IgwrtのルートターゲットをVPCEに設定するのが抜けてました。解決です！
+Makio Tsukamotoから皆様 (2:09 午後)
+ありがとうございます。
+typhonから皆様 (2:09 午後)
+TGWと関連させて考えると、最適なCIDRはなんか意識はしておきたいすね。あと、Kubernetes環境つくる場合もIP枯渇はげしくなるだろうし。
+typhonから皆様 (2:10 午後)
+ENIアタッチするサブネットは小さくてもいいってのは菊池さんもいうてましたし
+TGWにおいての話ですが。
+名前かえたので、よしえでいいですｗ
+Michael Tedderから皆様 (2:11 午後)
+できました！
+Shun Yoshie(typhon)から皆様 (2:11 午後)
+オンプレもやってるとどうしてもIPアドレス管理台帳をつくってしまう。
+kkumeから皆様 (2:12 午後)
+ファイアーウォールサブネットの作成は必須なのでしょうか？既存のサブネットと使いまわし可能でしうか？
+Shigeru Odaから皆様 (2:12 午後)
+終わりました　あとはSuricataのルール勉強せねば。
+hyanaiから皆様 (2:12 午後)
+従来IGWにRouteTableを付けている認識なかったのですが、Network Firewallを使う場合に初めて登場する概念ですか？
+Hisaaki URAGOから皆様 (2:13 午後)
+これ、後で自分で絵描かないと腹落ちしないなぁ。。。
+hrから皆様 (2:16 午後)
+ハンズオンに直接関係なくて恐縮ですが、ec2インスタンスにelb,auto scalingを設定した負荷分散は可能でしょうか？
+Shun Yoshie(typhon)から皆様 (2:17 午後)
+ハニポ状態
+Shigeru Odaから皆様 (2:17 午後)
+NW firewall触ってて面白いのが　本当色々アクセスされているとモニタリング出来るとこだと思いました。
+skから皆様 (2:18 午後)
+＞オンプレもやってるとどうしてもIPアドレス管理台帳をつくってしまう。これ他の方はどうやってるのか気になります。オンプレとネットワーク被るとVPNとか張れなくなるので、うちはオンプレの管理台帳にAWSのVPCのCIDRだけ書いてます
+otaから皆様 (2:19 午後)
+ごめんなさい。Edgeについてもう一度教えてもらってもよいでしょうか？
+ありがとうございます！
+hrから皆様 (2:20 午後)
+elbについてご回答ありがとうございます。暗号化された通信を検査して負荷分散したい場合もfirewall endpointの後ろにelbwp
+三枝誠から皆様 (2:20 午後)
+以前に自分でやったとき、ALBのサブネット割り当てはパブリックじゃないとダメってウィザードで怒られました。
+kkumeから皆様 (2:20 午後)
+NatGWのところですが、IGW-FW-NatGWの順番だったでしょうか？ちょっと見落としてしまいました。
+hrから皆様 (2:20 午後)
+elbを配置する認識でよろしいでしょうか？
+kkumeから皆様 (2:20 午後)
+ありがとうございます。
+hrから皆様 (2:21 午後)
+ありがとうございます。
+Shigeru Odaから皆様 (2:21 午後)
+マイク準備します
+Makio Tsukamotoから皆様 (2:21 午後)
+8888
+Yutaro Moriから皆様 (2:24 午後)
+ACL
+ACLが大変
+Shun Yoshie(typhon)から皆様 (2:24 午後)
+戻り考えるのめんどっちい
+Makio Tsukamotoから皆様 (2:24 午後)
+NACL下手に設定してトラブった記憶が。
+Shun Yoshie(typhon)から皆様 (2:24 午後)
+ネットワークおじさんほいほい
+Makio Tsukamotoから皆様 (2:24 午後)
+釣られてたw
+Shun Yoshie(typhon)から皆様 (2:25 午後)
+Cisco ルータからNetscreenへのリプレイスで、なんどハマったことか（うっ、頭が
+chocopurinから皆様 (2:26 午後)
+ウィンドウたくさん使うので、ノートPCだと別モニタ接続しないと大変
+taku999から皆様 (2:28 午後)
+ログきました
+otaから皆様 (2:30 午後)
+わかりません
+melから皆様 (2:30 午後)
+よくわかってないです
+otaから皆様 (2:32 午後)
+ありがとうございます
+masashiから皆様 (2:32 午後)
+ありがとうございます！わかりやすいです！
+Yasuhiro MATSUDAから皆様 (2:33 午後)
+すごい！
+k-sudoから皆様 (2:33 午後)
+ｗ
+Shigeru Odaから皆様 (2:33 午後)
+w
+otaから皆様 (2:33 午後)
+^^
+ambから皆様 (2:33 午後)
+ｗｗｗｗ
+taku999から皆様 (2:33 午後)
+ｗ
+yamaから皆様 (2:33 午後)
+established以外で、ポートｘｘｘでプロトコルがｘｘｘはAllowとか書きます
+k.alternaから皆様 (2:33 午後)
+www
+Tomoe Makinoから皆様 (2:33 午後)
+っ
+chiharu miyaから皆様 (2:33 午後)
+尊敬してます！
+Michaelから皆様 (2:33 午後)
+いや、笑いました！
+Shun Yoshie(typhon)から皆様 (2:33 午後)
+つ【ハンカチ】
+otaから皆様 (2:33 午後)
+キャパシティに設定する値を調整する場合は何を見て判断すればよいでしょうか？
+sho_otsumaから皆様 (2:33 午後)
+とてもよくわかりました。ありがとうございます。
+hmatsu47(まつ)から皆様 (2:33 午後)
+行きと戻りが違う経路を通るような構成だとステートフルで「なんで？」ってなる可能性はありそう（AWSというより一般的に）。
+KAZUHISA BANから皆様 (2:33 午後)
+笑）
+Shun Yoshie(typhon)から皆様 (2:33 午後)
+設定反映かなり早かったですけどね
+かんたんに、Wordpress遮断されました
+大口 聡から皆様 (2:34 午後)
+なんでもわかりやすく説明できるのは本当にスゴイと毎回思うのです…
+hmatsu47(まつ)から皆様 (2:34 午後)
+防音室が必要になりそう。
+cat0から皆様 (2:34 午後)
+お風呂でやります！キモがられたい
+KAZUHISA BANから皆様 (2:35 午後)
+ルールのキャパシティ計算難しいですね
+Makio Tsukamotoから皆様 (2:36 午後)
+最近AWSの資格試験もお風呂で受けるというし、お風呂熱いですね。
+KAZUHISA BANから皆様 (2:36 午後)
+ステートレス１つのセグメントより、SSH、HTTP、HTTPSを宛先ANYを満たす例でルールが消費するキャパシティを試算　プロトコル数（３つ）、送信元の指定（１つ）、送信先の指定（１つ）　　3ｘ1ｘ１＝3/ルール　ルールが２つなので、消費するキャパシティは、6つ
+otaから皆様 (2:36 午後)
+通信に対してルールを適応する際に負荷が多いとキャパシティをあげないといけないみたいなものかと思ったので、例えばnwfwの負荷があがった場合にキャパシティを上げるのかなと思って質問してみました。
+KAZUHISA BANから皆様 (2:36 午後)
+ステートフルドメインをホワイトリスト形式で指定し、１つのドメインをHTTPとHTTPSを許可する例でルールが消費するキャパシティを試算　ドメイン数（１つ）、プロトコルタイプ(TargetType)数（２つ）　　(ドメイン数 + 1) ｘ プロトコルタイプ(TargetType)数　　(1+1）ｘ2＝4/ルール　消費するキャパシティは、4つ
+Europaから皆様 (2:36 午後)
+ステートレスとステートフルの条件分岐に関して公式ドキュメントに記載があるのですね。。。https://docs.aws.amazon.com/ja_jp/network-firewall/latest/developerguide/firewall-rules-engines.html
+k-sudoから皆様 (2:37 午後)
+SuricataはIPS、というイメージですが、Firewallとしても他のOSSファイヤーウォールと遜色ない感じでしょうか。
+KAZUHISA BANから皆様 (2:37 午後)
+AWSサポートからは、値を１にしてエラー表示された値を使うとよいと回答をもらいましたね
+otaから皆様 (2:39 午後)
+メトリクスを見てもnwfwの負荷状態がわかるようなものがないように見えたのでキャパシティが足りてるのかの判断てどうやってるのかなと思いました。
+ありがとうございます。
+KAZUHISA BANから皆様 (2:40 午後)
+キャパシティの試算ですね
+otaから皆様 (2:40 午後)
+なるほど
+Shun Yoshie(typhon)から皆様 (2:41 午後)
+3rdPartyだと、NetworkFirewallでモニタリングできるものいくつかありますね
+DatadogとかDatadogとかDatadogとか
+Yes
+Yutaro Moriから皆様 (2:43 午後)
+申し訳ないですが、キャパシティの概要についてもう一度説明してもらってもよろしいでしょうか？理解が足りてなかったです
+hyanaiから皆様 (2:44 午後)
+ALBでhttpsを処理している場合「ユーザ→IGW→NWFW→ALB(pub,ここで復号)→EC2(pri)」の構成だと、NWFWの段階では暗号化されておりNWFWではL7などの通信制御は出来ないように思います。NWFWはL4までなのでそれでも問題ないというスタンスですか？
+awsbasics awsbasicsから皆様 (2:44 午後)
+https://aws.amazon.com/jp/network-firewall/pricing/
+hyanaiから皆様 (2:46 午後)
+了解です。NWFWはL4までと考え、L7はALBにWAFつけます。
+KAZUHISA BANから皆様 (2:46 午後)
+WAF ALB NWFWの組合せは、ややこしいですね
+Yasuhiro MATSUDAから皆様 (2:47 午後)
+見えるようになるのは大事ですね
+Michael Tedderから皆様 (2:48 午後)
+tail -f なにかの.log よりグラフ化がいいですよねw
+大口 聡から皆様 (2:48 午後)
+インターネットにさらす怖さを知ってもらうには、いいツールというのは確かに。
+まっさんから皆様 (2:49 午後)
+社内からインターネットへの接続をオンプレ拠点とは別にAWS経由のルートを新設しようと考えているので、Network Firewallも活用しようと思います。
+hmatsu47(まつ)から皆様 (2:49 午後)
+IPS（L7も見てるやつ）やWAFを使うと、Wordpress向けの無差別攻撃と脆弱性調査ツールによるスキャンがものすごい数やってきているのが分かる。
+Yasuhiro MATSUDAから皆様 (2:50 午後)
+８８８８８
+suemitsuから皆様 (2:50 午後)
+888888
+KAZUHISA BANから皆様 (2:50 午後)
+88888888
+Tomoe Makinoから皆様 (2:50 午後)
+88888
+Michael Tedderから皆様 (2:50 午後)
+888888
+yunokanyaから皆様 (2:50 午後)
+8888888888
+taku999から皆様 (2:50 午後)
+８８８８８８
+k.obiから皆様 (2:50 午後)
+88888
+Atsushi Marumoから皆様 (2:50 午後)
+8888
+Yukiから皆様 (2:50 午後)
+８８８８８８８
+Makio Tsukamotoから皆様 (2:50 午後)
+８８８８
+hmatsu47(まつ)から皆様 (2:50 午後)
+８８８８
+Yutaro Moriから皆様 (2:50 午後)
+８８８８８８８８８
+YMから皆様 (2:50 午後)
+88888
+melから皆様 (2:50 午後)
+888888
+sinodaから皆様 (2:50 午後)
+8888
+otaから皆様 (2:50 午後)
+８８８８８
+hitoshi kanekoから皆様 (2:50 午後)
+888888
+Makio Tsukamotoから皆様 (2:51 午後)
+もし削除手順1でエラーが出たら、サブネットの関連付けを解除→ルート編集でターゲットがvpce-となっている行を消す（消せないときは「ローカル」に向ける）→Edgeの関連付けを外す、だといけるかも。
+hmatsu47(まつ)から皆様 (2:54 午後)
+わたしが削除したときは、タイミングの問題かもしれませんが8.と9.を逆にしないとルールグループが削除できませんでした。
+5.は結構時間かかりますね。
+skから皆様 (2:55 午後)
+一足お先に抜けます。ありがとうございました。今日はコピペがしやすくて快適でした・・・
+k.obiから皆様 (2:58 午後)
+CI/CDめっちゃ楽しみです！
+Atsushi Marumoから皆様 (2:58 午後)
+がんばりまーす
+Shigeru Odaから皆様 (2:58 午後)
+めざせ　実参加者数 300人越え
+Michael Tedderから皆様 (2:59 午後)
+GameLift！
+yunokanyaから皆様 (2:59 午後)
+ゲーム作成はおもしろそう！
+Michael Tedderから皆様 (3:00 午後)
+やります！
+masashiから皆様 (3:00 午後)
+6/14はキャンセル待ちになってますね
+suemitsuから皆様 (3:00 午後)
+GameLift…初耳です
+菊地から皆様 (3:01 午後)
+月曜日のDirect Connect、楽しみ！
+Europaから皆様 (3:01 午後)
+Connect触ってみたいです。
+Michael Tedderから皆様 (3:01 午後)
+近いうちにGameLiftのイベント公開しますので興味がある方はぜひ参加してください！
+KAZUHISA BANから皆様 (3:01 午後)
+Grafana
+Daisuke Sonodaから皆様 (3:01 午後)
+サーバレス関連希望です。
+yunokanyaから皆様 (3:01 午後)
+Inspectorとかは興味ありますね。
+kkumeから皆様 (3:02 午後)
+やったかもしれませんが、Cognitoをもっと知りたいです。
+Daisuke Sonodaから皆様 (3:02 午後)
+加えてECS
+ambから皆様 (3:02 午後)
+もう気軽に作れないのか。。。サクッと消してしまうところでした。。。（AmazonConnect）
+kkumeから皆様 (3:02 午後)
+ありがとうございます
+masashiから皆様 (3:03 午後)
+CloudFormationについても勉強したいです（既存環境からFormer2で作ったことしかなくて、ちゃんと理解してないので。。。）
+
+
+CloudFormationについても勉強したいです（既存環境からFormer2で作ったことしかなくて、ちゃんと理解してないので。。。）
+awsbasics awsbasicsから皆様 (3:03 午後)
+https://github.com/harunobukameda/AWS-Amplify-AWS-Lambda-Amazon-DynamoDB-AWS-API-Gateway-Amazon-Cognito
+kkumeから皆様 (3:03 午後)
+やってみます、ありがとうございます。
+Daisuke Sonodaから皆様 (3:03 午後)
+なるほどです。
+awsbasics awsbasicsから皆様 (3:03 午後)
+https://github.com/harunobukameda/AWS-Fargate-for-Amazon-ECS
+nkから皆様 (3:04 午後)
+Sumeriあんとか、、。
+KAZUHISA BANから皆様 (3:04 午後)
+コンテナ会　参加したい
+ambから皆様 (3:04 午後)
+スイッチロールがよく分かってないのでハンズオンしてみたいです
+awsbasics awsbasicsから皆様 (3:05 午後)
+https://github.com/harunobukameda/Amazon-Sumerian-Amazon-Lex-Handson
+nkから皆様 (3:05 午後)
+ありがとうございます
+Shun Yoshie(typhon)から皆様 (3:05 午後)
+適度な動画コンテンツを翻訳と字幕つけるハンズオンなど
+
+
+https://github.com/harunobukameda/AWS-Amplify-AWS-Lambda-Amazon-DynamoDB-AWS-API-Gateway-Amazon-Cognito
+
